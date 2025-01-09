@@ -54,7 +54,11 @@ Use your preferred IDE or the command line to start the application:
 ```
 
 The application will be available at `http://localhost:8080`.
+___
 
+## ERD
+- **Diagram**:
+![Project Overview](./Scheema.png)
 ---
 
 ## API Endpoints
@@ -297,23 +301,87 @@ volumes:
 ## Key Classes and Data Models
 
 ### Tasks
-
-- **Attributes**:
-  - `id`: Task ID.
-  - `title`: Task title.
-  - `description`: Task description.
-  - `status`: Task status (`PENDING`, `IN_PROGRESS`, `COMPLETED`).
-  - `priority`: Task priority.
-  - `createdAt`: Task creation timestamp.
-  - `updatedAt`: Task last updated timestamp.
-  - `user`: Associated user.
-  - `project`: Associated project.
+**Attributes:**
+- **id**: Task ID.
+- **title**: Task title.
+- **description**: Task description.
+- **status**: Task status (PENDING, IN_PROGRESS, COMPLETED).
+- **priority**: Task priority.
+- **createdAt**: Task creation timestamp.
+- **updatedAt**: Task last updated timestamp.
+- **user**: Associated user.
+- **project**: Associated project.
 
 ### DTOs (Data Transfer Objects)
-
 - **CreateTaskDTO**: Handles task creation.
 - **UpdateUserDTO**: Handles user updates.
 - **CreateProjectDTO**: Handles project creation.
+
+---
+
+## API Endpoints
+
+### User Endpoints
+Located in **UsersController.kt**:
+- **GET /api/users**  
+  Retrieves all users.
+  
+- **GET /api/users/{id}**  
+  Retrieves a specific user by ID.
+  
+- **POST /api/users**  
+  Creates a new user.
+  
+- **PUT /api/users/{id}**  
+  Updates an existing user by ID.
+  
+- **DELETE /api/users/{id}**  
+  Deletes a specific user by ID.
+
+---
+
+### Project Endpoints
+Located in **ProjectsController.kt**:
+- **GET /api/projects**  
+  Retrieves all projects.
+  
+- **GET /api/projects/{id}**  
+  Retrieves a specific project by ID.
+  
+- **POST /api/projects**  
+  Creates a new project.
+  
+- **PUT /api/projects/{id}**  
+  Updates an existing project by ID.
+  
+- **DELETE /api/projects/{id}**  
+  Deletes a specific project by ID.
+
+---
+
+### Task Endpoints
+Located in **TasksController.kt**:
+- **GET /api/tasks**  
+  Retrieves all tasks.
+  
+- **GET /api/tasks/{id}**  
+  Retrieves a specific task by ID.
+  
+- **POST /api/tasks**  
+  Creates a new task.
+  
+- **PUT /api/tasks/{id}**  
+  Updates an existing task by ID.
+  
+- **PUT /api/tasks/{taskId}/assign/project/{projectId}**  
+  Assigns a task to a project.
+  
+- **PUT /api/tasks/{taskId}/assign/user/{userId}**  
+  Assigns a task to a user.
+  
+- **DELETE /api/tasks/{id}**  
+  Deletes a specific task by ID.
+
 
 ---
 
